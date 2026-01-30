@@ -3,6 +3,11 @@
 let output = document.getElementById("res");
 let temp = document.getElementById("hea");
 let area = document.getElementById("cit");
+let feels = document.getElementById("fee");
+let airspeed = document.getElementById("win");
+let humidit = document.getElementById("hum");
+let pressu = document.getElementById("pre");
+let Datee = document.getElementById("dat");
 let City;
 
 // https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=13660680d54f64f76512920e5368ba37&units=metric
@@ -21,14 +26,37 @@ async function getFacts()
     const cityName = data.name; 
     const temperature = data.main.temp;
     const feelsLike = parseInt(data.main.feels_like);
-  //  const min = data.main.temp_min;
-  //  const max = data.main.temp_max;
+   //  const min = data.main.temp_min;
+   //  const max = data.main.temp_max;
     const Humidity = data.main.humidity;
+    const Pressur = data.main.pressure;
     const windspeed = data.wind.speed;
     const Longitude = data.coord.lon;
     const Latitude = data.coord.lat;
      
     temp.innerText=`${temperature}°C`;
     area.innerText=`${cityName}`;
+    feels.innerText=`${feelsLike}°C`;
+    airspeed.innerText=`${windspeed}Km/h`;
+    humidit.innerText=`${Humidity}%`;
+    pressu.innerText=`${Pressur}hPa`;
 
+    realDate();
+}
+
+function realDate()
+{
+  let d = new Date();
+
+  const MonthsName = [
+    "Jan","Feb","Mar","Apr","May",
+    "June","July","Aug","Sept","Oct",
+    "Nov","Dec"
+  ]
+  
+  let dates = d.getDate();
+  let Months = MonthsName[d.getMonth()];
+  let Yearr = d.getFullYear();
+
+  Datee.innerText=`${dates} ${Months} ${Yearr}`;
 }
