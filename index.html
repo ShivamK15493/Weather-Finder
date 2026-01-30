@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
     <link rel="stylesheet" href="design.css">
+    <link rel="icon" href="weather.png" type="image/png">
 </head>
 <body>
     <h1 align="center">Weather Finder</h1>
@@ -16,24 +17,88 @@
            <button id="btn" onclick="getFacts()">Search</button>
         </div>
     </div>
-    <br><br>
- 
+    <br>
+
  <div class="data">
     
     <div class="output" id="res">
         <center>
-     <img src="sun.png" alt="">
+        <div class="weaImg">
+           <img src="weather.png" alt="">
+        </div>
      </center>
          <div align="center" id="hea">
             
-         </div>
+         </div> <br>
          <div id="cit">
          </div>
-    </div>
-    </div>
+         <div id="dat">
+         </div>
+         
+         <div class="area1">
+            <div class="feelsLike">
+                <center>
+                 <img src="feelsLike.png" alt="">
+                 </center>
+                 <center>
+                 <div class="feelFont">
+                 Feels Like
+                 </div>
+                 </center> 
+                  <center>
+                 <div class="feelOutput" id="fee">
+                 </div>
+                 </center>
+            </div>
+            <div class="wind">
+                 <center>
+                    <img src="wind.png" alt="">
+                 </center>
+                 <center>
+                 <div class="windFont">
+                 Wind Speed
+                 </div>
+                 </center>
+                 <center>
+                 <div class="windOutput" id="win">
+                 </div>
+                 </center>
+            </div>
+         </div>
+         <div class="area2">
+            <div class="humidity">
+                <center>
+                    <img src="humidity.png" alt="">
+                </center>
+                <center>
+                 <div class="humidityFont">
+                 Humidity
+                 </div>
+                 </center>
+                 <center>
+                 <div class="humidityOutput" id="hum">
+                 </div>
+                 </center>
+            </div>
+            <div class="pressure">
+                <center>
+                    <img src="pressure.png" alt="">
+                </center>
+                <center>
+                 <div class="pressureFont">
+                   - Pressure
+                 </div>
+                 </center>
+                 <center>
+                 <div class="pressureOutput" id="pre">
+                 </div>
+                 </center>
+            </div>
 
+         </div>
+    </div>
+    </div>
 
     <script src="style.js"></script>
 </body>
-
 </html>
