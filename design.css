@@ -2,6 +2,10 @@ body
 {
     background-color: rgb(242, 244, 244);
 }
+#headd
+{
+    font-family: sans-serif;
+}
 input
 {
     width: 14rem;
@@ -114,3 +118,4 @@ button
     font-family: sans-serif;
     height: 1rem;
 }
+
