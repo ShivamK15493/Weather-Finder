@@ -10,11 +10,27 @@ let pressu = document.getElementById("pre");
 let Datee = document.getElementById("dat");
 let City;
 
+
+let btn = document.querySelector("button");
+let container = document.querySelector("#res");
+let body = document.querySelector("body");
+let ERR = document.createElement("p");
+
+ERR.innerText="Error! resource not found";
+ERR.classList.add("er");
+
+
+
+container.hidden = true;
+
 // https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=13660680d54f64f76512920e5368ba37&units=metric
 // https://api.weatherapi.com/v1/current.json?key=3e99949c23084d3dbba152652253112&q=delhi
 
+btn.addEventListener("click", getFacts);
+
 async function getFacts()
 {
+   try{
      City = document.getElementById("search").value;
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${City}&appid=13660680d54f64f76512920e5368ba37&units=metric`;
    
@@ -22,6 +38,12 @@ async function getFacts()
     console.log(response);
     let data = await response.json();
     console.log(data);
+
+     if(!data){
+
+       throw new Error("Data not found");
+     }
+
      console.log(data.main)
     const cityName = data.name; 
     const temperature = data.main.temp;
@@ -37,11 +59,21 @@ async function getFacts()
     temp.innerText=`${temperature}°C`;
     area.innerText=`${cityName}`;
     feels.innerText=`${feelsLike}°C`;
+    
     airspeed.innerText=`${windspeed}Km/h`;
     humidit.innerText=`${Humidity}%`;
     pressu.innerText=`${Pressur}hPa`;
 
     realDate();
+
+    container.hidden = false;
+    ERR.hidden = true;
+
+   } catch(err) {
+      console.log("Error: ", err);
+      body.append(ERR);
+   }
+
 }
 
 function realDate()
